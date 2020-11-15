@@ -11,9 +11,8 @@ def main():
      return list(k.intersection(h))[3]
 
 
-if __name__=="__main__":
-     s=time()
-     print("Answer:{}".format(main()))
-     print("Time taken:{}".format(time()-s))
+if __name__=="__main__":    
+     start = time()
+     print(f"\nAnswer: { main() }")
+     print(f"Time Taken: { time() - start }\n")
      
-

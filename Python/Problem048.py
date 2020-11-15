@@ -1,15 +1,8 @@
 from time import time
 
-def loop():
-    m=0
-    for i in range(1,1001,1): 
-        m+=(i**i)
-    return m
+start = time()
+ans = sum([i**i for i in range(1, 1000)])%(10**10)
 
-answer = k[-10:-1]
-
-if __name__ == '__main__':
-    start = time()
-    print("Answer:{}".format(answer))
-    print("Time Taken:{}".format(time() - start))
-hg
+if __name__=="__main__":    
+    print(f"\nAnswer: { ans }")
+    print(f"Time Taken: { time() - start }\n")

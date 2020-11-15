@@ -1,32 +1,13 @@
 from time import time
 
-def digits(n):
-    s=[]
-    k=n
-    while(k>0):
-        s.append(k%10)
-        k//=10
-    return len(s)
+counter = 0
 
-def loop(n):
-    a = 0
-    b = 0
-    s=[]
-    while (a <= n):
-        while (b <= n):
-            if(digits(a**b)==b):
-                s.append(a**b)
-            else:
-                pass
-            b+=1
-        b=1
-        a+=1
-    return s
+for i in range(100):
+    for j in range(100):
+        if len(str(i**j)) == j:
+            counter += 1
 
-answer = len(loop(100))
-
-if __name__ == '__main__':
+if __name__=="__main__":
     start = time()
-    print("Answer:{}".format(answer))
-    print("Time Taken:{}".format(time() - start))
-kjbj
+    print(f"\nAnswer: { counter - 1 }") # the -1 is for "1" 
+    print(f"Time Taken: { time() - start }\n")

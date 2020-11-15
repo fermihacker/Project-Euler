@@ -12,25 +12,31 @@ def prime(n):
 
 def checkCircular(n):
     A = deque(list(str(n)))
+    
     if not prime(n):
         return False
+    
     SomeLis = []
+    
     for i in range(len(A)):
         SomeLis.append(int(''.join(list(A))))
         A.rotate()
+        
     return all(prime(i) for i in SomeLis)
 
 def main():
     counter = 0
     k = []
-    for i in range(2,10**6):
+    
+    for i in range(2, 10**6):
         if checkCircular(i):
             counter += 1
+            
     return counter
 
-if __name__ == "__main__":
+if __name__=="__main__":
     start = time()
-    print("Ans = {}".format(main()))
-    print("Time Taken:{}".format(time() - start))
+    print(f"\nAnswer: { main() }")
+    print(f"Time Taken: { time() - start }\n")
  
     

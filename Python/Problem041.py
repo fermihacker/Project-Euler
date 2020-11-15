@@ -1,41 +1,21 @@
-from math import sqrt; from itertools import count, islice
-import itertools as itr
-import time
+from math import sqrt; from itertools import count, islice, permutations
+from time import time
   
-def prime(n):
-    return n > 1 and all(n%i for i in islice(count(2), int(sqrt(n)-1)))
- 
-gf 
- 
-def pandigit(n):
-     try:
-         for i in range(1,n+1):
-             if str(n).count(str(i))>1:
-                 return False
-     except TypeError:
-         return False
-     except ValueError:
-         return False
-     return True
+prime = lambda n: n > 1 and all(n%i for i in islice(count(2), int(sqrt(n)-1)))
+isPan = lambda n: sorted(str(n)) == list(str(n))
+check = lambda n: prime(n) and isPan(n)
 
-def form(s):
-     k=''
-     for i in s:k+=i
-     return k
+def main():
+    perms = permutations("1234567", 7)
+    checkSet = set()
+    for i in perms:
+        temp = int(''.join(i))
+        if prime(temp):
+            checkSet.add(temp)
+        
+    return max(checkSet)
 
-def gen():
-    start=time.time()
-    s=list(itr.permutations('1234567',7))
-    k=[]
-    for i in s:
-        k.append(int(form(i)))
-    k.sort()
-    g=[]
-    for i in k:
-        if prime(i):
-            g.append(i)
-    print("Time taken:{}".format(time.time()-start))
-    return max(g)
-
-if __name__=='__main__':
-	print(gen())
+if __name__=="__main__":
+    start = time() 
+    print(f"\nAnswer: { main() }")
+    print(f"Time Taken: { time() - start }\n")

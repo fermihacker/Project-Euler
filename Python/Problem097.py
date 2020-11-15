@@ -1,9 +1,8 @@
 from time import time
 
-def ret_dig(n, i):
-     return int(str(n)[-i:])
+start = time()
+ans = ((28433*2**7830457)+1)%(10**10)
 
-if __name__ == "__main__":
-     start = time()
-     print(main())
-     print("Time Taken:{}".format(time() - start))
+if __name__=="__main__":
+    print(f"\nAnswer: { ans }")
+    print(f"Time Taken: { time() - start }\n")

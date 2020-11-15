@@ -2,14 +2,17 @@ from time import time
 
 def checkPan(n):
     '''To check if a number is a 9-digit pandigital number'''
-    return ['1','2','3','4','5','6','7','8','9'] == sorted(list(str(n)))
+    return list("123456789") == sorted(str(n))
 
 def getProduct(n):
-    '''This function is to get the concatenation of the products of number and list of numbers till it hits 9 digits or more'''
-    maxProduct = 1
-    i = 1
+    
+    '''
+    This function is to get the concatenation of the products of number and list of numbers till it hits 9 digits or more
+    '''
+    maxProduct, i = 1, 1
+    
     while True:
-        k = list(range(1,i + 1))
+        k = range(1, i+1)
         tempVar = ''.join([str(n*i) for i in k])
         if len(tempVar) > 9:
             return 0
@@ -28,8 +31,8 @@ def main():
     return maxProduct 
 
 
-if __name__ == "__main__":
+if __name__=="__main__":
     start = time()
-    print("Answer : {}".format(main()))
-    print("Time Taken : {}".format(time() - start))
+    print(f"\nAnswer: { main() }")
+    print(f"Time Taken: { time() - start }\n")
     

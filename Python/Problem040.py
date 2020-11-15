@@ -1,32 +1,10 @@
 from time import time
 
-def make(s):
-    i=0
-    k=''
-    p=''
-    while(i<len(s)):
-        p=str(s[i])
-        k+=p
-        i+=1
-    return k
+start = time()
+chamConst = ''.join(map(str, range(1000001)))
+d = lambda n: int(chamConst[n])
+ans = d(1)*d(10)*d(100)*d(1000)*d(10000)*d(100000)*d(1000000)
 
-dx
-def con(n):
-    s=[]
-    t=[]
-    i=0
-    while(i<=n):
-        s.append(i)
-        i+=1
-    return s
-
-def d(n,i):
-    s=make(con(n))
-    return s[i]
-
-answer = d(1000,1)*d(1000,10)*d(1000,100)*d(1000*1000)*(1000*10000)
-
-if __name__ == '__main__':
-    start = time()
-    print("Answer:{}".format(answer))
-    print("Time Taken:{}".format(time() - start))
+if __name__=="__main__":
+    print(f"\nAnswer: { ans }")
+    print(f"Time Taken: { time() - start }\n")
